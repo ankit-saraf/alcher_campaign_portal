@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mann Shakti</title>
+    
+    <link rel="stylesheet" href="message/home.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css">
+</head>
+<body>
+    <div class="top">
+        
+        <img src="{% static 'alcher-logo.png' %}" alt="" height="60" class=" ml-3 mt-3">
+            
+
+            <div class="container">
+
+                    <div class="row justify-content-center align-items-center" style="padding-top: 17.5vh; padding-bottom: 17.5vh;">
+                        <div class="col-lg-6 order-lg-1 order-md-1 order-2 col-md-6 col-8">
+                            <br><br>
+                            <img src="{% static 'Doctor-nurse.png'%}" class="doc-img" alt="";>
+                        </div>
+                        <div class="col-lg-6 order-lg-2 order-md-2 order-1 text-center col-md-6 col-10" id="intro"  >
+                            <img src="{% static 'campaign_logowhite__01.png' %}" alt="" width=50%>
+                            <p  class="logo-text" style="padding-top: 30px; ">During this time of a global pandemic, our health care heroes are striving to battle against the invisible enemy! The only solace they have is our love and support motivating them to keep working. A few words of appreciation is the least we can do to help them fight the stress and inhibitions and empower their minds in this state of crisis! <br>
+                                Join us in saluting our heroes from the bottom of our hearts!</p>
+                        </div>
+                   </div>
+            </div>
+
+    </div>
+
+
+    <br><br><br>
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-lg-4 col-md-6 col-0 align-self-center">
+                <img src="{% static 'postbox.png' %}" alt="" class="postbox">
+            </div>
+
+            <div class="col-lg-8 col-md-6 col-10 ">
+                <p class="love">Share some love, Drop a message</p>
+                <form method="POST" action="{% url 'submit' %}" enctype="multipart/form-data">{% csrf_token %}
+                    <textarea name="message" id="textarea" cols="30" rows="10" maxlength="300" placeholder="Type here"></textarea><br>
+                    <input type="submit" value="Share" id="share">
+                    <span id="feedback"></span>
+                    </form>
+                    <br>
+                    <p>{{error}}</p>
+                    <script>
+                        const myTextArea=document.getElementById('textarea');
+                        const remaining_char=document.getElementById('feedback');
+                        const max_char=300;
+                
+                        myTextArea.addEventListener('input', () => {
+                            const remaining= max_char-myTextArea.value.length;
+                
+                            remaining_char.textContent = remaining + '/300';
+                            remaining_char.style.position='relative';
+                            remaining_char.style.bottom='45px';
+                            remaining_char.style.left='15px';
+                            remaining_char.style.fontFamily='Open Sans';
+                            remaining_char.style.fontWeight='400';
+                            remaining_char.style.opacity='60%';
+                            
+
+                        })
+                    </script>
+            </div>
+
+        </div>
+        
+
+        <div class="row justify-content-around">
+            <div class="col-lg-5 col-md-10 col-10" id="column" style="margin-top: 100px;">
+                <br>
+                <p class="col_heading">Recent messages</p>
+                {% for message in allmessages.all %}
+                <div class="row col_element" >
+                    <div class="col-12" style="text-align: justify;">
+                        <span class="comtent">{{message.message}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        <!--Social media post from backend will come below. For illustrative purpose I added Recent messages in Social post tab-->
+            <div class="col-lg-5 col-md-10 col-10" id="column" style="margin-top: 100px;">
+                <br>
+                <p class="col_heading">Social posts</p>
+                {% for message in socialmessages.all %}
+                <div class="row col_element" >
+                    <div class="col-12" style="text-align: justify;">
+                        <center><span class="content"><img src="{{message.imglink}}" width="80%"></span></center>
+                        <br>
+                        <span class="content">{{message.message}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
+
+        </div>
+
+        <br><br><br>
+        <div class="row justify-content-center">
+            <div class="col-8 ">
+
+                <p class="endline">We would like to thank <a href="https://mitochondrial.in/" target="_blank">Mitochondrial</a> for helping us with our initiative.</p>
+            </div>
+        </div>
+        
+
+    </div>
+<!--Must add link to icons below-->
+<br><br><br><br>
+<div class="bottom">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="padding:10px 0px;">
+            <div class="col-lg-4 col-md-6 col-6" style="padding: 5px 0px;">
+                <div class="row justify-content-around">
+                    <div class="col-4 text-center">
+                        <a href="https://mitochondrial.in/"><img src="{% static 'Mitochondrial.png' %}"  height="35rem" width="35rem"></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="https://www.facebook.com/mitochondrial.in/" target="_blank"><img src="{% static 'facebook-logo.png' %}" alt="" ></a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="https://twitter.com/Mitochondrialin?s=09" target="_blank"><img src="{% static 'twitter-logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-md-5 col-5 text-center" style="padding: 5px 0px;">
+                <span class="contact">Contact Us</span><br>
+                <span><a href="https://www.instagram.com/prakkhargoyall31/?hl=en">Prakhar Goyal</a></span><br>
+                <span><a href="mailto:manshakti.alcheringa@gmail.com">(Campaigns Head)</a></span><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+</body>
+</html>

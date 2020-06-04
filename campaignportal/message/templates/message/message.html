@@ -1,0 +1,16 @@
+<br>
+<br>
+<a href="{% url 'home' %}">Write your own message</a>
+<br>
+<br>
+<h1>All Messages</h1><br>
+{% for message in allmessages.all %}
+<strong>{{message.name}}</strong>  <br>
+{{message.message}}
+<br>
+<br>
+<br>
+<hr>
+
+
+{% endfor %}

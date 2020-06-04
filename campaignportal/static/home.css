@@ -1,0 +1,191 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1200px;
+    }
+}
+
+.top{
+    background: url(./grad.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(196, 236, 255);
+}
+
+#intro{
+    margin-right: -80px;
+}
+
+.doc-img{
+    width: 80%;
+    margin-left: -20%;
+}
+
+.logo-text{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 20px;
+    text-align: end;
+}
+
+#textarea{
+    background-color: #EFFAFF; 
+    border-radius: 20px; 
+    border-color: #EFFAFF;
+    width: 100%;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 50px;
+    height: 250px;
+    resize: none;
+    
+}
+
+#share{
+    position: relative;
+    background-color: #4B93FF;
+    border-color: #4B93FF;
+    border-radius: 30px;
+    float: right;
+    color: white;
+    bottom: 45px;
+    right: 15px;
+    width: 80px;
+    border: none;
+}
+
+
+
+.love{
+    color: #44464D;
+    font-size: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+#column{
+    background-color:  #EFFAFF;
+    border-radius: 20px; 
+    border-color: #EFFAFF;
+    max-height: 90vh;
+    overflow: scroll;
+}
+
+.col_element{
+    margin: 20px 10px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 5px 2px;
+}
+
+.col_heading{
+    color: #4B93FF;
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+.endline{
+    color: #000000;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    
+
+}
+.message{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.contact{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.email{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.logo{
+    margin-left: 20%;
+}
+
+.bottom{
+    background-color:#EFFAFF ;
+}
+.postbox{
+    width: 60%;
+}
+
+.content{
+    text-align: justify;
+}
+
+
+@media  (max-width:1100px){
+    .doc-img{
+        margin-left: 0;
+    }
+
+}
+
+@media  (max-width:767px){
+    .love{
+        color: #44464D;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        text-align: center;
+    }
+
+
+    .top{
+        background: url(./Rectangle.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .postbox{
+        display: none;
+    }
+    
+    #intro{
+        margin-right:0;
+        
+    }
+
+    .logo-text{
+        text-align: center;
+    }
+
+    .doc-img{
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    
+    background-color: transparent;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #4B93FF;
+    border-radius: 5px;
+  }
